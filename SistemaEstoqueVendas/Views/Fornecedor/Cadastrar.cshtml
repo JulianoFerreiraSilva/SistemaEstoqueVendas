@@ -1,0 +1,52 @@
+﻿@model SistemaEstoqueVendas.Models.FornecedorModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutFornecedor.cshtml";
+}
+
+<!DOCTYPE html>
+
+<body>
+    @using(Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+    <fieldset>
+        <legend>Cadastro Fornecedor</legend>
+
+        @Html.ValidationSummary(true)
+
+        <label id="nome">Nome:</label>
+        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new {@class = "form-control"}})
+        @Html.ValidationMessageFor(model => model.Nome)
+        <br />
+
+        <label id="cpf-cnpj">CPF/CNPJ</label>
+        @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new {@class = "form-control"}})
+        @Html.ValidationMessageFor(model => model.CNPJ)
+        <br />
+
+        <label id="endereco">Endereço:</label>
+        @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new {@class = "form-control"}})
+        @Html.ValidationMessageFor(model => model.Endereco)
+        <br />
+
+        <label id="telefone">Telefone:</label>
+        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new {@class = "form-control"}})
+        @Html.ValidationMessageFor(model => model.Telefone)
+        <br />
+
+        <label id="email">Email:</label>
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new {@class = "form-control"}})
+        @Html.ValidationMessageFor(model => model.Email)
+        <br />
+
+        <input type="submit" value="Enviar" class="btn btn-default" />
+        <input type="reset" value="Limpar" class="btn btn-default" />
+        <ul class="nav nav-pills pull-right">
+            <li>@Html.ActionLink("Voltar", "Index")</li>
+        </ul>
+
+    </fieldset>
+    }
+</body>

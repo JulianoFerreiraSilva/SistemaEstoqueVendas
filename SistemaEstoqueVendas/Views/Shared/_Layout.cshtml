@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>@ViewBag.Title FieldSet Pedidos e Estoque</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="header ">
+                <ul class="nav nav-pills pull-right">                   
+                    <li>@Html.ActionLink("Produtos", "Index","Produto", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Fornecedores", "Index", "Fornecedor", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "Cliente", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Pedidos", "Index", "Pedido", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Usuarios", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Sair", "Index", "Logout", new { area = "" }, new { @class = "navbar-brand" })</li>
+                </ul>
+                <h2 class="text-muted"><b>Sistema Pedidos e Estoque</b></h2>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <hr />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p><b>&copy; @DateTime.Now.Year - FieldSet Systems S/A.</b></p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

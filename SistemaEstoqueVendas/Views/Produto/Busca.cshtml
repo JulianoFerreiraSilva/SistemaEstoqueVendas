@@ -1,0 +1,67 @@
+﻿@model SistemaEstoqueVendas.Models.Produto
+
+@{
+    Layout = "~/Views/Shared/_LayoutProduto.cshtml";
+}
+
+<!--Pagina a qual exibe os detalhes do produto em estoque-->
+<head>
+    <!--Script que gera um popup para excuir o produto-->
+    <script language="javascript" type="text/javascript">
+        function ExcluirPopup() {
+            varWindow = window.open(
+                
+                );
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <fieldset>
+            <legend>Produto</legend>
+            <table class="table table-responsive">
+                <tr>
+                    <label>Cod: </label>
+                    @Html.DisplayFor(model => model.Id)
+                </tr>
+                <br />
+
+                <tr>
+                    <label>Nome: </label>
+                    @Html.DisplayFor(model => model.Nome)
+                    &ensp; &ensp;
+
+                    <label>Caixa Com: </label>
+                    @Html.DisplayFor(model => model.QuantCaixa)
+                </tr>
+                <br />
+
+                <tr>
+                    <label>Quant. Estoque: </label>
+                    @Html.DisplayFor(model => model.Quantidade)
+
+                </tr>
+                <br />
+
+                <tr>
+                    <label>Valor Unitario: </label>
+                    @Html.DisplayFor(model => model.Valor)
+                </tr>
+                <br />
+                <tr>
+                    <label>Fornecedor: </label>
+                    @Html.DisplayFor(model => model.Fornecedor.Nome)
+                </tr>
+                <br />
+
+            </table>
+        </fieldset>
+    </div>
+
+    <ul class="nav nav-pills">
+        <li>@Html.ActionLink("Editar", "Editar", new { id = Model.Id })</li>
+        <li>@Html.ActionLink("Excluir", "Excluir", new { id = Model.Id })</li>
+        <li class="pull-right">@Html.ActionLink("Voltar", "Index")</li>
+    </ul>
+</body>

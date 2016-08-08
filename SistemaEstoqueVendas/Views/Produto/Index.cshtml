@@ -1,0 +1,39 @@
+﻿@model IList<SistemaEstoqueVendas.Models.Produto>
+@{
+    Layout = "~/Views/Shared/_LayoutProduto.cshtml";
+}
+
+<fieldset>
+    <legend>Lista de Produtos</legend>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <td><b>Cod</b></td>
+                <td><b>Nome</b></td>
+                <td><b>Quantidade</b></td>
+                <td><b>Caixa c/</b></td>
+                <td><b>Valor Unitario</b></td>
+                <td><b>Fornecedor</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
+                    <td>@Html.DisplayFor(modelItem => item.QuantCaixa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Valor)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Fornecedor.Nome)</td>
+                    <td>
+                        <ul class="nav nav-pills bottom-right">
+                            <li>@Html.ActionLink("Visualizar", "Busca", new { id = item.Id })</li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</fieldset>
+

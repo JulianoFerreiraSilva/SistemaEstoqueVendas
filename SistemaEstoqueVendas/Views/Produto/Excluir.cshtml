@@ -1,0 +1,56 @@
+﻿@model SistemaEstoqueVendas.Models.Produto
+@{
+    Layout = "~/Views/Shared/_LayoutProduto.cshtml";
+}
+
+<!DOCTYPE html>
+
+<!--Pagina com os dados do produto para exclusão-->
+<h3 align="center">Deseja mesmo excluir este produto?</h3>
+<br />
+<fieldset>
+    <legend>Produto</legend>
+
+    <table class="table table-responsive">
+        <tr>
+            <label><b>Cod: </b></label>
+            @Html.DisplayFor(model => model.Id)
+            <br />
+        </tr>
+        <tr>
+            <label><b>Nome: </b></label>
+            @Html.DisplayFor(model => model.Nome)
+            &ensp;&ensp;&ensp;
+
+            <label><b>Caixa c/: </b></label>
+            @Html.DisplayFor(model => model.QuantCaixa)
+            &ensp;&ensp;
+
+            <label><b>Estoque(Un): </b></label>
+            @Html.DisplayFor(model => model.Quantidade)
+        </tr>
+        <br />
+
+        <tr>
+            <label><b>Valor Unitario: </b></label>
+            @Html.DisplayFor(model => model.Valor)
+        </tr>
+        <br />
+
+        <tr>
+            <label><b>Fornecedor: </b></label>
+            @Html.DisplayFor(model => model.Fornecedor.Nome)
+        </tr>
+    </table>
+</fieldset>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Excluir" class="btn btn-default" />
+        <ul class="nav nav-pills pull-right">
+            <li>@Html.ActionLink("Voltar", "Index", "Produto")</li>
+        </ul>
+}
+

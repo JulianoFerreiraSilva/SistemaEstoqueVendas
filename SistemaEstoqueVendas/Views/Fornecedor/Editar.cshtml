@@ -1,0 +1,52 @@
+﻿@model SistemaEstoqueVendas.Models.Fornecedor
+
+@{
+    Layout = "~/Views/Shared/_LayoutFornecedor.cshtml";
+}
+
+<!--Formulario para editar fornecedores cadastrados-->
+<!DOCTYPE html>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <legend>Editar Fornecedor</legend>
+
+    @Html.ValidationSummary(true)
+
+    <label id="id">Id: </label><br />
+    @Html.DisplayFor(model => model.Id)
+    <br />
+
+    <label id="nome">Nome: </label>
+    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Nome)
+    <br />
+
+    <label id="cnpj">CNPJ: </label>
+    @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.CNPJ)
+    <br />
+
+    <label id="endereco">Endereco: </label>
+    @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Endereco)
+    <br />
+
+    <label id="telefone">Telefone: </label>
+    @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Telefone)
+    <br />
+
+    <label id="email">Email: </label>
+    @Html.EditorFor(model => model.Email, new { htmlAttributes = new {@class = "form-control"} })
+    @Html.ValidationMessageFor(model => model.Email)
+    <br />
+
+    <input type="submit" value="Enviar" class="btn btn-default" />
+    <ul class="nav nav-pills pull-right">
+        <li>@Html.ActionLink("voltar","Index")</li>
+    </ul>
+
+}

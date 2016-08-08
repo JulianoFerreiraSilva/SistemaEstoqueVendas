@@ -1,0 +1,50 @@
+﻿@model SistemaEstoqueVendas.Models.ProdutoModel
+    
+@{ 
+    Layout = "~/Views/Shared/_LayoutProduto.cshtml";
+}
+
+<!DOCTIPE html>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            <legend>Cadastro de Produto</legend>
+            @Html.ValidationSummary(true)
+
+            <label id="nome">Nome:</label>
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome)
+            <br />
+
+            <label id="quantidade">Quantidade:</label>
+            @Html.EditorFor(model => model.Quantidade, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Quantidade)
+            <br />
+
+            <label id="quantCaixa">Caixa Com:</label>
+            @Html.EditorFor(model => model.QuantCaixa, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.QuantCaixa)
+            <br />
+
+            <label id="valor">Valor:</label>
+            @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Valor)
+            <br />
+
+            <label id="fornecedor">Fornecedor:</label>
+            @Html.DropDownListFor(model => model.FornecedorId, new SelectList(ViewBag.Fornecedores, "Id", "Nome"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FornecedorId)
+            <br />
+        </fieldset>
+
+        <input type="submit" value="Enviar" class="btn btn-default" />
+        <input type="reset" value="Limpar" class="btn btn-default" />
+        <ul class="nav nav-pills pull-right">
+            <li>@Html.ActionLink("voltar", "Index")</li>
+        </ul> 
+    }
+</body>
+

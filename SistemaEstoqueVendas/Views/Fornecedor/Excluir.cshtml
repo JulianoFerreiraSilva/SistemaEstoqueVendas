@@ -1,0 +1,57 @@
+﻿@model SistemaEstoqueVendas.Models.Fornecedor
+
+@{
+    Layout = "~/Views/Shared/_LayoutFornecedor.cshtml";
+}
+
+<!DOCTYPE html>
+
+<!--Pagina onde exibe detalhes do fornecedor para confirmar a exclusão-->
+<h3 align="center"><b>Você Realmente deseja Excluir este Fornecedor?</b></h3>
+<br />
+<fieldset>
+    <legend>Fornecedor</legend>
+
+    <table class="table table-responsive">
+        <tr>
+            <label><b>Cod: </b></label>
+            @Html.DisplayFor(model => model.Id)
+        </tr>
+        <br />
+
+        <tr>
+            <label><b>Nome: </b></label>
+            @Html.DisplayFor(model => model.Nome)
+            &ensp;&ensp;
+
+            <label><b>Cnpj: </b></label>
+            @Html.DisplayFor(model => model.CNPJ)
+        </tr>
+        <br />
+
+        <tr>
+            <label><b>Endereço: </b></label>
+            @Html.DisplayFor(model => model.Endereco)
+            &ensp;&ensp;
+
+            <label><b>Telefone: </b></label>
+            @Html.DisplayFor(model => model.Telefone)
+            &ensp;&ensp;
+        </tr>
+        <br />
+
+        <tr>
+            <label><b>Email: </b></label>
+            @Html.DisplayFor(model => model.Email)
+        </tr>
+    </table>
+</fieldset>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Excluir" class="btn btn-default" />
+        <ul class="nav nav-pills pull-right">
+            <li>@Html.ActionLink("Voltar", "Index", "Fornecedor")</li>
+        </ul>
+    }

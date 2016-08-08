@@ -1,0 +1,33 @@
+﻿@model IList<SistemaEstoqueVendas.Models.Fornecedor>
+
+@{
+    Layout = "~/Views/Shared/_LayoutFornecedor.cshtml";
+}
+
+<!--Pagina Index onde exibe lista de fornecedores-->
+    <legend>Lista Fornecedores</legend>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <td><b>Cod</b></td>
+                <td><b>Nome</b></td>
+                <td><b>Endereço</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Endereco)</td>
+                    <td>
+                        <ul class="nav nav-pills bottom-right">
+                            <li>@Html.ActionLink("Visualizar", "Busca", new { id = item.Id })</li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
