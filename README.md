@@ -1,6 +1,7 @@
 Sistema de Estoque e Vendas
 
 📌 Visão Geral
+
   O Sistema de Estoque e Vendas é uma aplicação desenvolvida em C# / .NET com o objetivo de gerenciar produtos, estoque e vendas de forma simples e organizada. O projeto foi criado com foco em boas práticas de programação, organização de código e aplicação   de conceitos amplamente utilizados no mercado.
   Este repositório faz parte do meu portfólio como Desenvolvedor .NET, demonstrando conhecimentos em backend, acesso a dados e arquitetura em camadas.
 ________________________________________
