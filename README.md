@@ -26,6 +26,8 @@ ________________________________________
 
 •	ASP.NET MVC
 
+•	Razor Page
+
 •	Entity Framework
 
 •	SQL Server
