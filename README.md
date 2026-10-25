@@ -1,97 +1,226 @@
-Sistema de Estoque e Vendas
+# 📦 Sistema de Estoque e Vendas
 
-📌 Visão Geral
+### ASP.NET MVC 5 | .NET Framework 4.5.2 | C# | Entity Framework 5 | SQL Server
 
-  O Sistema de Estoque e Vendas é uma aplicação desenvolvida em C# / .NET com o objetivo de gerenciar produtos, estoque e vendas de forma simples e organizada. O projeto foi criado com foco em boas práticas de programação, organização de código e aplicação   de conceitos amplamente utilizados no mercado.
-  Este repositório faz parte do meu portfólio como Desenvolvedor .NET, demonstrando conhecimentos em backend, acesso a dados e arquitetura em camadas.
-________________________________________
-🎯 Objetivos do Projeto
+O **Sistema de Estoque e Vendas** é uma aplicação web desenvolvida em C# utilizando ASP.NET MVC, voltada ao gerenciamento de produtos e fornecedores, com persistência de dados em SQL Server.
 
-•	Aplicar conceitos de Orientação a Objetos (POO) 
+O projeto representa uma etapa da minha trajetória no desenvolvimento de software, com foco na aplicação de conceitos de programação orientada a objetos, organização de código, acesso a dados e construção de aplicações web no ecossistema Microsoft.
 
-•	Utilizar Entity Framework para persistência de dados
+---
 
-•	Trabalhar com ASP.NET e padrões comuns do ecossistema .NET
+## 🛠️ Tecnologias utilizadas
 
-•	Simular um cenário real de estoque e vendas
+| Tecnologia | Versão / utilização |
+|---|---|
+| C# | Linguagem de programação |
+| .NET Framework | **4.5.2** |
+| ASP.NET MVC | **5.2.3** |
+| Entity Framework | **5.0.0** |
+| SQL Server | Banco de dados relacional |
+| Razor | Construção das interfaces MVC |
+| Bootstrap | 3.0.0 |
+| jQuery | 1.10.2 |
+| Visual Studio | Ambiente de desenvolvimento |
+| Git / GitHub | Versionamento de código |
 
-•	Manter código organizado e de fácil manutenção
+**Nota:** esta aplicação utiliza o .NET Framework clássico, não ASP.NET Core. As versões foram identificadas nos arquivos de configuração do projeto original.
 
-________________________________________
-🛠️ Tecnologias Utilizadas
+---
 
-•	C# 
+## 🏗️ Arquitetura e organização
 
-•	.NET
+O sistema foi estruturado utilizando o padrão **MVC (Model-View-Controller)**, com uma camada adicional de acesso a dados.
 
-•	ASP.NET MVC
+### Model
 
-•	Razor Page
+Contém as classes que representam os dados da aplicação, incluindo produtos, fornecedores, clientes, pedidos e usuários.
 
-•	Entity Framework
+Também utiliza classes de metadados para definição de validações.
 
-•	SQL Server
+### View
 
-•	Visual Studio
-________________________________________
-🧩 Funcionalidades
+Responsável pela apresentação das interfaces ao usuário, utilizando Razor, HTML, CSS, Bootstrap e JavaScript.
 
-•	Cadastro de produtos
+### Controller
 
-•	Controle de estoque
+Recebe as requisições, coordena os fluxos de navegação e utiliza as classes de acesso a dados para executar operações.
 
-•	Registro de vendas
+### DAO — Data Access Object
 
-•	Atualização automática de quantidades em estoque
+Concentra as operações de persistência, separando as consultas e alterações no banco de dados dos controllers.
 
-•	Validações básicas de negócio
-________________________________________
-📂 Estrutura do Projeto (Visão Geral)
+### Entity Framework
 
-•	Controllers: Responsáveis por receber as requisições
+O mapeamento do banco utiliza um modelo EDMX, característico da abordagem **Database First**, com geração de entidades e contexto a partir do modelo de dados.
 
-•	Models: Entidades e regras de domínio
+---
 
-•	Data / Context: Configuração do Entity Framework e banco de dados
+## 📦 Funcionalidades implementadas
 
-•	Views: Interface do sistema (MVC)
-________________________________________
-▶️ Como Executar o Projeto
+### Gerenciamento de produtos
 
-Pré-requisitos
+- Cadastro de produtos.
+- Listagem de produtos registrados.
+- Consulta de produto por identificador.
+- Edição de informações.
+- Exclusão de produtos.
+- Associação de produtos a fornecedores.
+- Validação de campos obrigatórios.
 
-•	Visual Studio
+As informações do produto incluem nome, quantidade, quantidade por caixa, valor e fornecedor associado.
 
-•	SQL Server
+### Gerenciamento de fornecedores
 
-•	.NET instalado
+- Cadastro de fornecedores.
+- Listagem de fornecedores.
+- Consulta por identificador.
+- Atualização de informações.
+- Exclusão de registros.
+- Validação de dados cadastrais.
 
-Passos
-1.	Clone este repositório: git clone https://github.com/JulianoFerreiraSilva/SistemaEstoqueVendas.git
-2.	Abra a solução no Visual Studio
-3.	Configure a string de conexão no arquivo de configuração
-4.	Execute as migrations (se aplicável)
-5.	Inicie a aplicação
+O cadastro contempla informações como nome, endereço, telefone, e-mail e documento.
 
-________________________________________
-📌 Próximas Melhorias Planejadas
+### Módulos estruturados
 
-•	Migração para ASP.NET Core Web API
+O projeto também contém entidades e controllers relacionados a:
 
-•	Atualização para .NET 7/8
+- Clientes.
+- Pedidos.
+- Usuários.
 
-•	Separação em camadas (Domain, Application, Infrastructure)
+Esses módulos fazem parte da estrutura original, mas os controllers publicados apresentam apenas ações básicas de navegação, sem fluxos completos de gerenciamento.
 
-•	Implementação de autenticação e autorização
+---
 
-•	Criação de testes unitários
-________________________________________
-👤 Autor
+## ✅ Validação de dados
 
-Juliano Ferreira Silva Desenvolvedor .NET
+O projeto utiliza **Data Annotations** em classes de modelo, permitindo definir regras como obrigatoriedade de campos, limites de caracteres e validação de formato de e-mail.
 
-•	GitHub: https://github.com/JulianoFerreiraSilva
-________________________________________
-📄 Licença
+Nos formulários de cadastro e edição, os controllers utilizam `ModelState.IsValid` para verificar as validações antes de persistir alterações.
 
-  Este projeto é de uso educacional e faz parte do meu portfólio pessoal.
+Algumas operações POST também utilizam `ValidateAntiForgeryToken` para proteção contra falsificação de requisições.
+
+---
+
+## 📂 Estrutura do projeto
+
+```text
+SistemaEstoqueVendas/
+├── App_Start/
+│   └── RouteConfig.cs
+├── Controllers/
+│   ├── ClienteController.cs
+│   ├── FornecedorController.cs
+│   ├── HomeController.cs
+│   ├── PedidoController.cs
+│   ├── ProdutoController.cs
+│   └── UsuarioController.cs
+├── DAO/
+│   ├── ClienteDAO.cs
+│   ├── FornecedorDAO.cs
+│   ├── PedidoDAO.cs
+│   ├── ProdutoDAO.cs
+│   └── UsuarioDAO.cs
+├── Models/
+│   ├── ModeloDeDados.edmx
+│   ├── Produto.cs
+│   ├── Fornecedor.cs
+│   ├── Cliente.cs
+│   ├── Pedido.cs
+│   └── Usuario.cs
+├── Views/
+├── Content/
+├── scripts/
+├── Web.config
+├── packages.config
+└── SistemaEstoqueVendas.csproj
+```
+
+---
+
+## ⚙️ Como executar
+
+### Pré-requisitos
+
+- Windows.
+- Visual Studio com suporte a projetos ASP.NET MVC do .NET Framework clássico.
+- .NET Framework 4.5.2 Developer Pack ou ferramentas de compilação compatíveis.
+- SQL Server.
+- Acesso à estrutura de banco de dados esperada pelo modelo EDMX.
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/JulianoFerreiraSilva/SistemaEstoqueVendas.git
+```
+
+### 2. Abrir a solução
+
+Abra `SistemaEstoqueVendas.sln` no Visual Studio.
+
+### 3. Restaurar as dependências
+
+Restaure os pacotes NuGet definidos no arquivo `packages.config`, incluindo ASP.NET MVC e Entity Framework.
+
+### 4. Configurar o banco de dados
+
+Configure a conexão `EstoqueVendaDataBase` no arquivo `Web.config`, utilizando uma instância SQL Server e um banco compatível com o modelo da aplicação.
+
+Não utilize credenciais reais em arquivos destinados à publicação.
+
+Como o projeto utiliza Entity Framework Database First, a configuração do banco deve ser compatível com as entidades e relacionamentos definidos no EDMX.
+
+### 5. Executar a aplicação
+
+Compile a solução e execute-a pelo Visual Studio com IIS Express ou outro ambiente ASP.NET compatível.
+
+**Observação:** por se tratar de uma aplicação legada, a execução pode exigir restauração de dependências e adaptação da configuração de banco de dados. Não há garantia de funcionamento imediato em ambientes modernos.
+
+---
+
+## 📚 Conceitos aplicados
+
+O projeto demonstra conhecimentos relacionados a:
+
+- Programação orientada a objetos.
+- Desenvolvimento web com ASP.NET MVC.
+- Separação de responsabilidades.
+- Acesso a dados com DAO.
+- Persistência com Entity Framework.
+- Mapeamento relacional com Database First.
+- Operações CRUD.
+- Validações de formulários.
+- Integração com SQL Server.
+- Versionamento com Git.
+
+---
+
+## 📌 Contexto e evolução
+
+Este repositório representa uma aplicação desenvolvida utilizando tecnologias do ecossistema .NET Framework clássico.
+
+Sua manutenção como parte do portfólio permite demonstrar experiência com projetos MVC tradicionais e acompanhar a evolução técnica para abordagens mais modernas de desenvolvimento backend.
+
+A experiência adquirida com ASP.NET MVC, Entity Framework e SQL Server contribuiu para o aprofundamento posterior em ASP.NET Core, APIs REST e arquiteturas organizadas em camadas.
+
+### Projeto relacionado
+
+**[Finance Core — API REST em .NET 8](https://github.com/JulianoFerreiraSilva/ApiFinanceCore)**
+
+Projeto de controle financeiro desenvolvido com tecnologias mais recentes, incluindo ASP.NET Core 8, PostgreSQL, CQRS e autenticação JWT.
+
+Os dois repositórios representam diferentes momentos de aprendizado e aplicação de tecnologias do ecossistema .NET.
+
+---
+
+## 👨‍💻 Autor
+
+**Juliano Ferreira da Silva**
+
+Desenvolvedor C# / .NET
+
+GitHub: [JulianoFerreiraSilva](https://github.com/JulianoFerreiraSilva)
+
+---
+
+**Sistema de Estoque e Vendas — Projeto de portfólio desenvolvido com ASP.NET MVC 5 e .NET Framework 4.5.2.**
