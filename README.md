@@ -23,8 +23,6 @@ O projeto representa uma etapa da minha trajetória no desenvolvimento de softwa
 | Visual Studio | Ambiente de desenvolvimento |
 | Git / GitHub | Versionamento de código |
 
-**Nota:** esta aplicação utiliza o .NET Framework clássico, não ASP.NET Core. As versões foram identificadas nos arquivos de configuração do projeto original.
-
 ---
 
 ## 🏗️ Arquitetura e organização
