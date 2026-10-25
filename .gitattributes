@@ -61,3 +61,8 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# Bibliotecas JavaScript de terceiros
+SistemaEstoqueVendas/scripts/** linguist-vendored
+SistemaEstoqueVendas/Content/bootstrap*.css linguist-vendored
+SistemaEstoqueVendas/fonts/** linguist-vendored
